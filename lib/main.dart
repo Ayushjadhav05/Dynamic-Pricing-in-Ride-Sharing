@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'signup_page.dart';
+import 'home_page.dart' as home; // Use an alias to disambiguate HomePage
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,9 +17,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => MainPage(),
+        '/': (context) => const MainPage(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
+        '/home': (context) => home.HomePage(), // Use aliased HomePage
       },
     );
   }
@@ -57,99 +59,68 @@ class MainPage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // App Logo
                       CircleAvatar(
-                        radius: maxWidth * 0.07, // Adjusted for responsiveness
+                        radius: maxWidth * 0.07,
                         backgroundColor: Colors.white.withOpacity(0.5),
                         child: Icon(
                           Icons.directions_car,
                           color: Colors.blueAccent,
-                          size: maxWidth * 0.08, // Adjusted for responsiveness
+                          size: maxWidth * 0.08,
                         ),
                       ),
                       SizedBox(height: maxHeight * 0.04),
-
-                      // Welcome Text
                       Text(
                         'Welcome to Ride Sharing App',
                         style: TextStyle(
-                          fontSize: maxWidth * 0.05, // Smaller font size
+                          fontSize: maxWidth * 0.05,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: maxHeight * 0.02),
-
-                      // Subtitle Text
                       Text(
                         'Choose an option below to get started.',
                         style: TextStyle(
-                          fontSize: maxWidth * 0.035, // Smaller font size
+                          fontSize: maxWidth * 0.035,
                           color: Colors.white70,
                         ),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: maxHeight * 0.04),
-
-                      // Login Button
                       SizedBox(
-                        width: maxWidth * 0.6, // 60% of screen width
-                        height: maxHeight * 0.06, // 6% of screen height
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            maxWidth: 250, // Maximum width for the button
-                            minWidth: 150, // Minimum width for the button
-                          ),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/login');
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              foregroundColor: Colors.blueAccent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                              textStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: maxWidth * 0.025, // Smaller font size
-                              ),
+                        width: maxWidth * 0.6,
+                        height: maxHeight * 0.06,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/login');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            foregroundColor: Colors.blueAccent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
                             ),
-                            child: const Text('Login'),
                           ),
+                          child: const Text('Login'),
                         ),
                       ),
                       SizedBox(height: maxHeight * 0.02),
-
-                      // Sign-Up Button
                       SizedBox(
-                        width: maxWidth * 0.6, // 60% of screen width
-                        height: maxHeight * 0.06, // 6% of screen height
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            maxWidth: 250, // Maximum width for the button
-                            minWidth: 150, // Minimum width for the button
+                        width: maxWidth * 0.6,
+                        height: maxHeight * 0.06,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/signup');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            foregroundColor: Colors.blueAccent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
                           ),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/signup');
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              foregroundColor: Colors.blueAccent,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                              textStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: maxWidth * 0.025, // Smaller font size
-                              ),
-                            ), 
-                            child: const Text('Sign Up'),
-                          ),
+                          child: const Text('Sign Up'),
                         ),
                       ),
                     ],
