@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MainPage(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
+        '/bookRide':(context) => home.BookRidePage(),
         '/home': (context) => home.HomePage(), // Use aliased HomePage
       },
     );

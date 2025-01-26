@@ -4,6 +4,7 @@ class SignUpPage extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
 
   SignUpPage({super.key});
 
@@ -26,7 +27,7 @@ class SignUpPage extends StatelessWidget {
         ),
         child: Center(
           child: FractionallySizedBox(
-            widthFactor: 0.8,
+            widthFactor: 0.85, // Slightly adjusted width factor for better compatibility
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,22 +47,25 @@ class SignUpPage extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 10),
-                TextField(
-                  controller: nameController,
-                  decoration: InputDecoration(
-                    hintText: 'Enter your full name',
-                    hintStyle: const TextStyle(color: Colors.white54),
-                    filled: true,
-                    fillColor: Colors.white.withOpacity(0.1),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none,
+                const SizedBox(height: 8),
+                SizedBox(
+                  height: 45, // Reduced height for input fields
+                  child: TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      hintText: 'Enter your full name',
+                      hintStyle: const TextStyle(color: Colors.white54),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.1),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
+                    style: const TextStyle(color: Colors.white),
                   ),
-                  style: const TextStyle(color: Colors.white),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
                 const Text(
                   'Email',
                   style: TextStyle(
@@ -69,22 +73,52 @@ class SignUpPage extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 10),
-                TextField(
-                  controller: emailController,
-                  decoration: InputDecoration(
-                    hintText: 'Enter your email',
-                    hintStyle: const TextStyle(color: Colors.white54),
-                    filled: true,
-                    fillColor: Colors.white.withOpacity(0.1),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none,
+                const SizedBox(height: 8),
+                SizedBox(
+                  height: 45, // Reduced height for input fields
+                  child: TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      hintText: 'Enter your email',
+                      hintStyle: const TextStyle(color: Colors.white54),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.1),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
+                    style: const TextStyle(color: Colors.white),
                   ),
-                  style: const TextStyle(color: Colors.white),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 15),
+                const Text(
+                  'Phone Number',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                SizedBox(
+                  height: 45, // Reduced height for input fields
+                  child: TextField(
+                    controller: phoneController,
+                    decoration: InputDecoration(
+                      hintText: 'Enter your phone number',
+                      hintStyle: const TextStyle(color: Colors.white54),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.1),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                    keyboardType: TextInputType.phone,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(height: 15),
                 const Text(
                   'Password',
                   style: TextStyle(
@@ -92,25 +126,29 @@ class SignUpPage extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 10),
-                TextField(
-                  controller: passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Enter your password',
-                    hintStyle: const TextStyle(color: Colors.white54),
-                    filled: true,
-                    fillColor: Colors.white.withOpacity(0.1),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none,
+                const SizedBox(height: 8),
+                SizedBox(
+                  height: 45, // Reduced height for input fields
+                  child: TextField(
+                    controller: passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Enter your password',
+                      hintStyle: const TextStyle(color: Colors.white54),
+                      filled: true,
+                      fillColor: Colors.white.withOpacity(0.1),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
+                    style: const TextStyle(color: Colors.white),
                   ),
-                  style: const TextStyle(color: Colors.white),
                 ),
                 const SizedBox(height: 30),
                 SizedBox(
                   width: double.infinity,
+                  height: 45, // Increased height for the "Sign Up" button
                   child: ElevatedButton(
                     onPressed: () {
                       // Simulate successful sign-up and navigate to HomePage
@@ -123,7 +161,13 @@ class SignUpPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    child: const Text('Sign Up'),
+                    child: const Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        fontSize: 16, // Slightly larger font size for better emphasis
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ],
